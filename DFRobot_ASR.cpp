@@ -16,7 +16,7 @@ DFRobot_ASR::DFRobot_ASR(TwoWire *pWire, uint8_t address){
   _pWire = pWire;
 
 }
-int DFRobot_ASR::begin(eMode_t mode)
+int DFRobot_ASR::begin(eMode_t mode,eMicrophoneMode_t miMode)
 {
   _mode = mode;
   _pWire->begin();
@@ -26,6 +26,13 @@ int DFRobot_ASR::begin(eMode_t mode)
     return ERR_DATA_BUS;
    }
   writeReg(ASR_BEGIN);
+  if(miMode == MIC){
+     writeReg(ASR_MIC_MODE);
+  } else {
+     writeReg(ASR_MONO_MODE);
+  }
+  
+  
   delay(50);
   return ERR_OK;
 }
@@ -106,7 +113,7 @@ uint8_t DFRobot_ASR::readReg(uint8_t reg, void* pBuf, size_t size)
     DBG("pBuf ERROR!! : null pointer");
   }
   uint8_t * _pBuf = (uint8_t *)pBuf;
-    pBuf[0] = 0xff;
+    _pBuf[0] = 0xff;
     unsigned char i = 0;  
     /* Indicate which register we want to read from */
     if (!writeReg(reg)) {

@@ -46,6 +46,10 @@
 #define ASR_PASSWORD        0xA6
 
 #define ASR_IDLE           0xA8
+
+#define ASR_MIC_MODE           0xA9
+#define ASR_MONO_MODE           0xAA
+
 /*!
   三种识别模式
 */
@@ -54,6 +58,11 @@ typedef enum {
   PASSWORD, /**<指令模式，>**/
   BUTTON,/**<按钮模式，>**/
 }eMode_t;
+
+typedef enum {
+  MIC,
+  MONO,
+}eMicrophoneMode_t;
 
 class DFRobot_ASR {
   #define ERR_OK             0      //No error
@@ -75,7 +84,7 @@ public:
      @param 语音识别模式
      @return 返回0表示初始化成功，返回其他值表示初始化失败，返回错误码
   */
-  int begin(eMode_t mode = LOOP);
+  int begin(eMode_t mode = LOOP,eMicrophoneMode_t miMode = MIC);
   
   /**
      @brief 语音模块开始识别.

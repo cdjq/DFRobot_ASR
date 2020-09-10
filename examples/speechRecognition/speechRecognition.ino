@@ -34,14 +34,14 @@ void setup()
      @param 语音识别模式1.LOOP(循环模式)2.PASSWORD(指令模式)3.BUTTON(按钮模式)
      @return 返回0表示初始化成功，返回其他值表示初始化失败，返回错误码
   */
-  asr.begin();
+  asr.begin(BUTTON);
   /*!
    * 只能识别汉字，将要识别的汉字转换成拼音字母，每个汉字之间空格隔开，比如：开始 --> kai shi
    * 最多添加50个词条，每个词条最长为79个字符，每个词条最多10个汉字
    * 每个词条都对应一个识别号（1~255随意设置）不同的语音词条可以对应同一个识别号，
    */
-  asr.addCommend("kai shi",0);   //在指令模式下，第一个词组为开始指令
-  asr.addCommend("jie shu",1);             //开始
+  asr.addCommend("kai deng",0);   //在指令模式下，第一个词组为开始指令
+  asr.addCommend("guan deng",1);             //开始
   asr.addCommend("bei jing",2);              //北京
   asr.addCommend("shang hai",3);       //上海
   asr.addCommend("xiang gang",4);             //香港
