@@ -27,7 +27,6 @@ DFRobot_ASR  asr;
 void setup()
 {
   Serial.begin(9600);
-  Serial.begin(9600);
   
   /**
      @brief 初始化函数
