@@ -19,7 +19,7 @@
 #endif
 #include <Wire.h>
 
-//#define ENABLE_DBG
+#define ENABLE_DBG
 
 #ifdef ENABLE_DBG
 #define DBG(...) {Serial.print("[");Serial.print(__FUNCTION__); Serial.print("(): "); Serial.print(__LINE__); Serial.print(" ] "); Serial.println(__VA_ARGS__);}
@@ -33,22 +33,23 @@
  * 最多添加50个词条，每个词条最长为79个字符，每个词条最多10个汉字
  * 每个词条都对应一个识别号（1~255随意设置）不同的语音词条可以对应同一个识别号，
  */
-#define I2C_ADDR           0x50
+#define I2C_ADDR               0x50
 
-#define ASR_BEGIN           0xA1
+#define ASR_BEGIN              0xA1
 //识别结果存放处，通过不断读取此地址的值判断是否识别到语音，不同的值对应不同的语音，
-#define ASR_ADDCOMMAND      0xA2  //开始写入词条
-#define ASR_ADDCOMMAND_END      0xA3  //结束写入词条
-#define ASR_START           0xA4
+#define ASR_ADDCOMMAND         0xA2  //开始写入词条
+#define ASR_ADDCOMMAND_END     0xA3  //结束写入词条
+#define ASR_START              0xA4
 
-#define ASR_LOOP            0xA5
-#define ASR_BUTTON           0xA7
-#define ASR_PASSWORD        0xA6
+#define ASR_LOOP               0xA5
+#define ASR_BUTTON             0xA7
+#define ASR_PASSWORD           0xA6
 
-#define ASR_IDLE           0xA8
+#define ASR_IDLE               0xA8
 
 #define ASR_MIC_MODE           0xA9
-#define ASR_MONO_MODE           0xAA
+#define ASR_MONO_MODE          0xAA
+#define ASR_SET_IIC_ADDR       0xAB
 
 /*!
   三种识别模式
@@ -97,7 +98,7 @@ public:
      @return bool值 成功返回 1.
   */
   bool addCommend( char *words, char idNum);
-  
+  void setIICAddr(uint8_t addr);
   /**
      @brief 读取识别到的词条.
      @return 返回代表词条的识别号

@@ -43,7 +43,7 @@ void DFRobot_ASR::start()
 }
 bool DFRobot_ASR::addCommend( char *words, char idNum)
 {
-   _pWire->beginTransmission(I2C_ADDR);
+   _pWire->beginTransmission(_deviceAddr);
    _pWire->write(ASR_ADDCOMMAND);
    _pWire->write(idNum);
    _pWire->write(strlen(words));
@@ -62,7 +62,6 @@ int DFRobot_ASR::read(){
   int result = 0;
   switch (_mode)
   {
-
      case      BUTTON: readReg(ASR_BUTTON,&result,1);
                        break;   
      case       LOOP: readReg(ASR_LOOP,&result,1);
@@ -86,7 +85,12 @@ int DFRobot_ASR::read(){
     return result;
   }
 }
+void DFRobot_ASR::setIICAddr(uint8_t addr){
 
+  if(addr >127)  addr = 127;
+  writeReg(ASR_SET_IIC_ADDR,addr);
+
+}
 void DFRobot_ASR::writeReg(uint8_t reg, uint8_t data)
 {
   _pWire->beginTransmission(_deviceAddr);
@@ -119,7 +123,7 @@ uint8_t DFRobot_ASR::readReg(uint8_t reg, void* pBuf, size_t size)
     if (!writeReg(reg)) {
         return -1;
     }
-    delay(20);
+    delay(18);
    _pWire->requestFrom(_deviceAddr, size);
    while (_pWire->available()) {
         if (i >= size) {
