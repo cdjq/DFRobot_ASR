@@ -85,7 +85,7 @@ int DFRobot_ASR::read(){
     return result;
   }
 }
-void DFRobot_ASR::setIICAddr(uint8_t addr){
+void DFRobot_ASR::setI2CAddr(uint8_t addr){
 
   if(addr >127)  addr = 127;
   writeReg(ASR_SET_IIC_ADDR,addr);

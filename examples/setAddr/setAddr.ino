@@ -32,7 +32,7 @@ void setup()
   asr.begin(BUTTON);
   Serial.println("set iic ADDR");
   //需要再次断电后生效,
-  asr.setIICAddr(0x50);
+  asr.setI2CAddr(0x50);
 }
 
 void loop()
