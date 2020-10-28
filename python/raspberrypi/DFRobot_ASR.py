@@ -92,9 +92,9 @@ class DFRobot_ASR(object):
     if addr > 127:
         addr = 127
     self.i2cbus.write_byte_data(self._addr,self.ASR_SET_IIC_ADDR ,addr)
-    print(self._addr)
-    print(self.ASR_SET_IIC_ADDR)
-    print(addr)
+    #print(self._addr)
+    #print(self.ASR_SET_IIC_ADDR)
+    #print(addr)
 
   def write_data(self, data):
     self.i2cbus.write_byte(self._addr ,data)
