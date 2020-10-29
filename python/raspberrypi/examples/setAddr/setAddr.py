@@ -15,7 +15,7 @@ sys.path.append("../..")
 from DFRobot_ASR import *
 
 IIC_MODE         = 0x01            # default use IIC1
-IIC_ADDRESS      = 0x4F            # default iic device address
+IIC_ADDRESS      = 0x50            # default iic device address
 '''
    # The first  parameter is to select iic0 or iic1
    # The second parameter is the iic device address
@@ -30,6 +30,5 @@ asr = DFRobot_ASR(IIC_MODE ,IIC_ADDRESS)
 asr.begin(asr.ASR_LOOP,asr.MIC)
 time.sleep(0.1)
 #设置I2C地址
-#在树莓派上尽量不要选择(0x50 ~0x5F)的地址
 asr = asr.setI2CAddr(0x4E)
 print("The new address needs to be powered off and reconnected to take effect")

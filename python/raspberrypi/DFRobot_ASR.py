@@ -62,7 +62,7 @@ class DFRobot_ASR(object):
     #print(len(word))
     for i in range(0,len(word)):
       self.write_data(ord(word[i]))
-      print(word[i])
+      #print(word[i])
     #self.i2cbus.write_i2c_block_data(self._addr ,idNum ,word)
     self.write_data(self.ASR_ADDCOMMAND_END)
     
