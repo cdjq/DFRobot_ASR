@@ -41,7 +41,7 @@ void DFRobot_ASR::start()
   writeReg(ASR_START);
   delay(50);
 }
-bool DFRobot_ASR::addCommend( char *words, char idNum)
+bool DFRobot_ASR::addCommand( char *words, char idNum)
 {
    _pWire->beginTransmission(_deviceAddr);
    _pWire->write(ASR_ADDCOMMAND);

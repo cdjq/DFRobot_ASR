@@ -97,7 +97,7 @@ public:
      @param 词条的识别号
      @return bool值 成功返回 1.
   */
-  bool addCommend( char *words, char idNum);
+  bool addCommand( char *words, char idNum);
   void setI2CAddr(uint8_t addr);
   /**
      @brief 读取识别到的词条.

@@ -39,11 +39,11 @@ void setup()
    * 最多添加50个词条，每个词条最长为79个字符，每个词条最多10个汉字
    * 每个词条都对应一个识别号（1~255随意设置）不同的语音词条可以对应同一个识别号，
    */
-  asr.addCommend("kai deng",0);   //在指令模式下，第一个词组为开始指令
-  asr.addCommend("guan deng",1);             //开始
-  asr.addCommend("bei jing",2);              //北京
-  asr.addCommend("shang hai",3);       //上海
-  asr.addCommend("xiang gang",4);             //香港
+  asr.addCommand("kai deng",0);   //在指令模式下，第一个词组为开始指令
+  asr.addCommand("guan deng",1);             //开始
+  asr.addCommand("bei jing",2);              //北京
+  asr.addCommand("shang hai",3);       //上海
+  asr.addCommand("xiang gang",4);             //香港
 
   //开始识别
   asr.start();

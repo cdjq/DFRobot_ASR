@@ -14,7 +14,7 @@ DFRobot_ASR	KEYWORD1
 
 begin	KEYWORD2
 start	KEYWORD2
-addCommend	KEYWORD2
+addCommand	KEYWORD2
 read	KEYWORD2
 setI2CAddr KEYWORD2
 

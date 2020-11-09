@@ -50,7 +50,7 @@ class DFRobot_ASR(object):
     self.write_data(self.ASR_START)
     time.sleep(0.05)
 
-  def addCommend(self,words,idNum):
+  def addCommand(self,words,idNum):
     
     #word = str(chr(idNum))+words+str(chr(self.ASR_ADDCOMMAND_END))
     #print(word[0])
