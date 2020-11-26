@@ -20,7 +20,7 @@
 /**
    @brief 构造函数
    @param pWire I2C总线指针对象，构造设备，可传参数也可不传参数，默认Wire
-   @param address 7位I2C地址,由前三位决定地址的值，默认0x50
+   @param address 7位I2C地址,由前三位决定地址的值，默认0x4F
 */
 DFRobot_ASR  asr;
 
