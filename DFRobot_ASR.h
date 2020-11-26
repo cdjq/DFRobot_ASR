@@ -33,7 +33,7 @@
  * 最多添加50个词条，每个词条最长为79个字符，每个词条最多10个汉字
  * 每个词条都对应一个识别号（1~255随意设置）不同的语音词条可以对应同一个识别号，
  */
-#define I2C_ADDR               0x50
+#define I2C_ADDR               0x4F
 
 #define ASR_BEGIN              0xA1
 //识别结果存放处，通过不断读取此地址的值判断是否识别到语音，不同的值对应不同的语音，
@@ -76,9 +76,9 @@ public:
   /**
      @brief 构造函数
      @param pWire I2C总线指针对象，构造设备，可传参数也可不传参数，默认Wire
-     @param address 7位I2C地址,由前三位决定地址的值，默认0x50
+     @param address 7位I2C地址,由前三位决定地址的值，默认0x4F
   */
-  DFRobot_ASR(TwoWire *pWire = &Wire, uint8_t address = 0x50);
+  DFRobot_ASR(TwoWire *pWire = &Wire, uint8_t address = 0x4F);
   
   /**
      @brief 初始化函数

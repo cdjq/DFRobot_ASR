@@ -21,7 +21,7 @@ sys.path.append("../..")
 from DFRobot_ASR import *
 
 IIC_MODE         = 0x01            # default use IIC1
-IIC_ADDRESS      = 0x40           # default iic device address
+IIC_ADDRESS      = 0x4F           # default iic device address
 '''
    # The first  parameter is to select iic0 or iic1
    # The second parameter is the iic device address
