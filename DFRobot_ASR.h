@@ -91,6 +91,7 @@ public:
      @brief 语音模块开始识别.
   */
   void start();
+   
   /**
      @brief 向模块添加词条
      @param 代表词条的字符串
@@ -98,7 +99,13 @@ public:
      @return bool值 成功返回 1.
   */
   bool addCommand( char *words, char idNum);
+  
+  /**
+     @brief 设置模块的i2c地址(从新上电后生效)
+     @param addr 需要设置的i2c地址(0~127)
+  */
   void setI2CAddr(uint8_t addr);
+   
   /**
      @brief 读取识别到的词条.
      @return 返回代表词条的识别号
