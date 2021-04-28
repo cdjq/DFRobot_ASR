@@ -43,11 +43,43 @@ void DFRobot_ASR::start()
 }
 bool DFRobot_ASR::addCommand( char *words, char idNum)
 {
+   uint16_t length = strlen(words);
+   uint16_t lenTemp = length;
+   Serial.println(length);
+   if(length > 72) return false;
    _pWire->beginTransmission(_deviceAddr);
    _pWire->write(ASR_ADDCOMMAND);
    _pWire->write(idNum);
-   _pWire->write(strlen(words));
-   _pWire->write((uint8_t *)words,strlen(words));
+   _pWire->write(length);
+   _pWire->endTransmission();
+   
+   _pWire->beginTransmission(_deviceAddr);
+   while(length){
+      if(length > 28){
+         lenTemp =28;
+      } else {
+         lenTemp = length;
+     }
+   
+      _pWire->beginTransmission(_deviceAddr);
+      for(uint8_t i =0;i<lenTemp;i++){
+        _pWire->write(words[i]);
+        DBG(words[i]);
+      }
+      if( _pWire->endTransmission() != 0 ) {
+          DBG("ERR_DATA_BUS");
+          return ERR_DATA_BUS;
+      }
+      length -= lenTemp;
+      words += lenTemp;
+   }
+   if( _pWire->endTransmission() != 0 ) {
+       delay(10);
+       return false;
+   }
+   
+   _pWire->beginTransmission(_deviceAddr);
+   
    _pWire->write(ASR_ADDCOMMAND_END);
    if( _pWire->endTransmission() != 0 ) {
        delay(10);
