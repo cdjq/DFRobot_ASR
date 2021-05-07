@@ -16,7 +16,7 @@ begin	KEYWORD2
 start	KEYWORD2
 addCommand	KEYWORD2
 read	KEYWORD2
-setI2CAddr KEYWORD2
+setI2CAddr	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
