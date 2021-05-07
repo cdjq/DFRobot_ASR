@@ -60,7 +60,7 @@ To use this library, please download the library file first, and paste it into t
 ```
 
 ## Compatibility
-Remarks
+MCU                | Work Well    | Work Wrong   | Untested    | Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
 Arduino Uno        |      √       |              |             | 
 FireBeetle-ESP8266        |      √       |              |             | 
