@@ -16,9 +16,8 @@
 * [Credits](#credits)
 
 ## Summary
-
-  1.向语音识别模块添加词条,每一个词条会附带一个编号
-  2.当模块识别到添加的词条时,会返回对应的编号
+  1.向语音识别模块添加词条,每一个词条会附带一个编号<br>
+  2.当模块识别到添加的词条时,会返回对应的编号<br>
 ## Installation
 To use this library, please download the library file first, and paste it into the \Arduino\libraries directory, then open the examples folder and run the demo in the folder.
 
@@ -61,7 +60,6 @@ To use this library, please download the library file first, and paste it into t
 ```
 
 ## Compatibility
-
 Remarks
 ------------------ | :----------: | :----------: | :---------: | -----
 Arduino Uno        |      √       |              |             | 
