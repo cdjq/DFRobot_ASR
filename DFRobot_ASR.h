@@ -78,7 +78,7 @@ public:
      @param pWire I2C总线指针对象，构造设备，可传参数也可不传参数，默认Wire
      @param address 7位I2C地址,由前三位决定地址的值，默认0x4F
   */
-  DFRobot_ASR(TwoWire *pWire = &Wire, uint8_t address = 0x4B);
+  DFRobot_ASR(TwoWire *pWire = &Wire, uint8_t address = 0x4f);
   
   /**
      @brief 初始化函数
